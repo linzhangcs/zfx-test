@@ -27,15 +27,15 @@ class BootStrap {
       comTwo.save()
 
       // Establish company and user and auth
-      def comOneUser = new CompanyUser(user:zfxUser, company:comOne, companyAuth:adminRole).save()
+      def comOneUser = new CompanyUser(person:zfxUser, company:comOne, authority:adminRole).save()
       comOne.addToMembership(comOneUser).save()
-      PersonAuthority.create zfxUser, adminRole
+      //PersonAuthority.create zfxUser, adminRole
 
       //def comTwoUser = new CompanyUser(user:zfxUser, company:comTwo, companyAuth:)
 
-      def comTwoUser = new CompanyUser(user:zfxUser, company:comTwo, companyAuth:userRole).save()
+      def comTwoUser = new CompanyUser(person:zfxUser, company:comTwo, authority:userRole).save()
       comTwo.addToMembership(comTwoUser).save()
-      PersonAuthority.create zfxUser, userRole
+      //PersonAuthority.create zfxUser, userRole
 
       PersonAuthority.withSession{
         it.flush()

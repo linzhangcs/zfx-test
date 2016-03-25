@@ -8,8 +8,8 @@ class ZfxUser extends Person{
 
     static belongsTo = Company
     static hasMany = [membership: CompanyUser]
-    static mappedBy = [membership: "user"]
-    
+    static mappedBy = [membership: "person"]
+
     static constraints = {
       name (blank:false, nullable:false, size:3..30, matches:"[a-zA-Z1-9_]+")
     }
