@@ -7,7 +7,17 @@ class BootStrap {
       def admin = new Person('lin', 'p')
       admin.save()
 
+      def comOne = Company.findOrCreateByName('zfx')
+      comOne.save()
+
+
       def zfxUser = new ZfxUser(name:'lin', username:'linz', password:'pp').save()
+
+      comOne.addToCompanyUsers(zfxUser)
+      comOne.save()
+
+      def comOneUser = new CompanyUser(user:zfxUser, company:comOne, companyAuth:adminRole).save()
+      comOne.addToMembership(comOneUser).save()
 
       PersonAuthority.create admin, adminRole
       PersonAuthority.create zfxUser, adminRole

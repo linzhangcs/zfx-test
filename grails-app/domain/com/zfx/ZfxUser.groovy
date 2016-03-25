@@ -6,6 +6,10 @@ class ZfxUser extends Person{
 
     String name;
 
+    static belongsTo = Company
+    static hasMany = [membership: CompanyUser]
+    static mappedBy = [membership: "user"]
+    
     static constraints = {
       name (blank:false, nullable:false, size:3..30, matches:"[a-zA-Z1-9_]+")
     }
