@@ -7,7 +7,10 @@ class BootStrap {
       def admin = new Person('lin', 'p')
       admin.save()
 
+      def zfxUser = new ZfxUser(name:'lin', username:'linz', password:'pp').save()
+
       PersonAuthority.create admin, adminRole
+      PersonAuthority.create zfxUser, adminRole
 
       PersonAuthority.withSession{
         it.flush()
