@@ -16,6 +16,7 @@ class BootStrap {
       def comTwo = Company.findOrCreateByName('xyz')
       comTwo.save()
 
+      def comThree = Company.findOrCreateByName('abc').save()
       // ZfxUser
       def zfxUser = new ZfxUser(name:'lin', username:'linz', password:'pp').save()
 

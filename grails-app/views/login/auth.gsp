@@ -100,8 +100,8 @@
 			</p>
 
 			<p>
-				<label for='name'><g:message code="springSecurity.login.orgName.label" default='Company'/>:</label>
-				<g:select name='name' from="${com.zfx.Company.list()}" optionKey='name' />
+				<label for='companyName'><g:message code="springSecurity.login.orgName.label" default='Company'/>:</label>
+				<g:select name='companyName' from="${com.zfx.Company.list()}" optionKey='name' />
 			</p>
 
 			<p>
